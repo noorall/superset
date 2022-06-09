@@ -9,14 +9,17 @@ if TYPE_CHECKING:
 
 
 class CrateEngineSpec(BaseEngineSpec):
-
     engine = "iotdb"
     engine_name = "Apache IoTDB"
 
+    allows_hidden_ordeby_agg = False
+    allows_joins = False
+
     @classmethod
     def alter_new_orm_column(cls, orm_col: "TableColumn") -> None:
-        if orm_col.type == "TIMESTAMP":
+        if orm_col.column_name == "Time":
             orm_col.python_date_format = "epoch_ms"
+            orm_col.is_dttm = True
 
     @classmethod
     def convert_dttm(cls, target_type: str, dttm: datetime) -> Optional[str]:
