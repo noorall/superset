@@ -52,7 +52,6 @@ VERSION_INFO_FILE = os.path.join(BASE_DIR, "superset", "static", "version_info.j
 with open(VERSION_INFO_FILE, "w") as version_file:
     json.dump(version_info, version_file)
 
-
 setup(
     name="apache-superset",
     description=("A modern, enterprise-ready business intelligence web application"),
@@ -84,7 +83,8 @@ setup(
         "geopy",
         "graphlib-backport",
         "gunicorn>=20.0.2, <20.1",
-        "holidays==0.10.3",  # PINNED! https://github.com/dr-prodigy/python-holidays/issues/406
+        "holidays==0.10.3",
+        # PINNED! https://github.com/dr-prodigy/python-holidays/issues/406
         "humanize",
         "itsdangerous>=1.0.0, <2.0.0",  # https://github.com/apache/superset/pull/14627
         "isodate",
@@ -104,10 +104,12 @@ setup(
         "redis",
         "selenium>=3.141.0",
         "simplejson>=3.15.0",
-        "slackclient==2.5.0",  # PINNED! slack changes file upload api in the future versions
+        "slackclient==2.5.0",
+        # PINNED! slack changes file upload api in the future versions
         "sqlalchemy>=1.3.16, <1.4, !=1.3.21",
         "sqlalchemy-utils>=0.36.6,<0.37",
-        "sqlparse==0.3.0",  # PINNED! see https://github.com/andialbrecht/sqlparse/issues/562
+        "sqlparse==0.3.0",
+        # PINNED! see https://github.com/andialbrecht/sqlparse/issues/562
         "tabulate==0.8.9",
         "typing-extensions>=3.7.4.3,<4",  # needed to support typing.Literal on py37
         "wtforms-json",
@@ -123,7 +125,7 @@ setup(
         "cockroachdb": ["cockroachdb>=0.3.5, <0.4"],
         "cors": ["flask-cors>=2.0.0"],
         "crate": ["crate[sqlalchemy]>=0.26.0, <0.27"],
-        "iotdb": ["pyiotdb>=0.0.1"],
+        "iotdb": ["apache-iotdb>=0.13.0"],
         "databricks": ["databricks-dbapi[sqlalchemy]>=0.5.0, <0.6"],
         "db2": ["ibm-db-sa>=0.3.5, <0.4"],
         "dremio": ["sqlalchemy-dremio>=1.1.5, <1.2"],

@@ -340,6 +340,18 @@ const config = {
           },
         ],
       },
+      // {
+      //   test: /\.jsx?$/,
+      //   // include source code for plugins, but exclude node_modules and test files within them
+      //   exclude: [/superset-ui.*\/node_modules\//, /\.test.jsx?$/],
+      //   include: [
+      //     new RegExp(`${APP_DIR}/src`),
+      //     /superset-ui.*\/src/,
+      //     new RegExp(`${APP_DIR}/.storybook`),
+      //     /@encodable/,
+      //   ],
+      //   use: [babelLoader],
+      // },
       {
         test: /\.jsx?$/,
         // include source code for plugins, but exclude node_modules and test files within them
@@ -348,7 +360,7 @@ const config = {
           new RegExp(`${APP_DIR}/src`),
           /superset-ui.*\/src/,
           new RegExp(`${APP_DIR}/.storybook`),
-          /@encodable/,
+          path.resolve(__dirname, 'src'), // 添加本行代码，对 windows 环境不友好
         ],
         use: [babelLoader],
       },
